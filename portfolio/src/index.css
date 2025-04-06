@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@theme {
+  --color-portfolio-blue: #0d3748;
+  --color-portfolio-teal: #38b2ac;
+  --color-portfolio-purple: #805ad5;
+  --color-portfolio-dark: #1a202c;
+  --color-portfolio-light: #e2e8f0;
+}
+:root {
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
