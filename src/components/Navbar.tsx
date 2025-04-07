@@ -32,7 +32,7 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  className={`px-3 py-2 rounded-md text-md font-medium ${
                     location.pathname === link.path
                       ? 'text-blockchain-teal'
                       : 'text-blockchain-light hover:text-blockchain-teal'
