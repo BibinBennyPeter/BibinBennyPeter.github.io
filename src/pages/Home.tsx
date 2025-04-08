@@ -65,8 +65,8 @@ const Home = () => {
   return (
     <div className="hero-section min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b to-portfolio-teal/10 ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+      <section className="bg-gradient-to-b to-portfolio-teal/15 ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-32">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <motion.h1
@@ -75,7 +75,7 @@ const Home = () => {
                 transition={{ duration: 0.8 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
               >
-                Building the{" "}
+                Building the {" "} 
                 <span className="text-portfolio-teal brightness-125">Decentralized</span>{" "}
                 Future
               </motion.h1>
@@ -84,24 +84,12 @@ const Home = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
-                className="text-xl md:text-2xl font-medium text-portfolio-light mb-6 h-8"
+                className="text-xl md:text-2xl font-medium text-portfolio-light h-8"
               >
                 <span className="text-portfolio-purple">{visibleText}</span>
                 <span className="animate-pulse">|</span>
               </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5, duration: 0.8 }}
-                className="flex flex-wrap gap-4"
-              >
-                <Link to="projects" className="btn-primary">
-                  Download CV <FiArrowRight className="inline ml-2" />
-                </Link>
-
-                {/*  */}
-              </motion.div>
             </div>
 
             <div className="md:w-1/2 flex justify-center">
@@ -120,11 +108,34 @@ const Home = () => {
               </motion.div>
             </div>
           </div>
+        <div className="md:flex justify-between">
+          <motion.div
+          className="md:w-1/2"
+          >
+          <span className="text-l">
+            Hi! I'm{" "}<span className="text-portfolio-teal font-bold">Bibin Benny</span>.<br/> With over a year of experience in web development and a strong interest in blockchain technologies and DeFi, I enjoy working on projects that blend practical utility with emerging technologies.
+          </span>
+          </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5, duration: 0.8 }}
+                className="flex justify-center md:w-1/2 items-center text-portfolio-teal"
+
+              >
+                <Link to={"https://bit.ly/BibinBenny_CV"} target="_blank" className="btn-primary">
+                  Get my resume <FiArrowRight className="inline ml-2" />
+                </Link>
+
+                {/*  */}
+              </motion.div>
+
+        </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 bg-gradient-to-b from-portfolio-teal/10">
+      <section className="py-16 bg-gradient-to-b from-portfolio-teal/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl md:text-4xl font-bold mb-12 text-white">
 <span className="text-portfolio-teal">Expertise</span>
@@ -144,7 +155,7 @@ const Home = () => {
                 className="card group"
               >
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="p-3 bg-portfolio-dark rounded-lg text-portfolio-teal group-hover:text-portfolio-purple transition-colors">
+                  <div className="rounded-lg text-portfolio-teal group-hover:text-portfolio-purple transition-colors">
                     {skill.icon}
                   </div>
                   <h3 className="text-xl font-bold text-portfolio-light">
