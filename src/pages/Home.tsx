@@ -1,4 +1,3 @@
-// src/pages/Home.tsx
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -10,7 +9,9 @@ import {
   FiFile,
   FiShield,
   FiLayers,
+  FiMail
 } from "react-icons/fi";
+import profile from "../assets/BibinBenny.jpg";
 
 const Home = () => {
   const [visibleText, setVisibleText] = useState("");
@@ -65,8 +66,8 @@ const Home = () => {
   return (
     <div className="hero-section min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b to-portfolio-teal/15 ">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-32">
+      <section className="bg-gradient-to-b to-portfolio-teal/15">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-32">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <motion.h1
@@ -102,7 +103,7 @@ const Home = () => {
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-portfolio-teal to-portfolio-purple/50 opacity-20 blur-xl"></div>
                 <div className="absolute inset-4 rounded-full flex items-center justify-center">
                   <span className="text-8xl font-bold bg-clip-text bg-gradient-to-r from-portfolio-teal to-portfolio-purple">
-                    <img className="rounded-full" src={"/assets/BibinBenny.jpg"} alt="Bibin Benny"/>
+                    <img className="rounded-full" src={profile} alt="Bibin Benny"/>
                   </span>
                 </div>
               </motion.div>
@@ -120,11 +121,11 @@ const Home = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="flex justify-center md:w-1/2 items-center text-portfolio-teal"
+                className="flex justify-center  max-sm:mt-4  md:w-1/2 items-center md:text-portfolio-teal"
 
               >
-                <Link to={"https://bit.ly/BibinBenny_CV"} target="_blank" className="btn-primary">
-                  Get my resume <FiArrowRight className="inline ml-2" />
+                <Link to={"https://bibinbennypeter.github.io/BibinBenny.pdf"} target="_blank" className="flex justify-center items-center max-sm:py-1 btn-primary max-sm:text-white max-sm:bg-portfolio-teal/45 w-35 rounded-2xl">
+                  Get my resume <FiArrowRight className="max-sm:hidden  inline ml-2" />
                 </Link>
 
                 {/*  */}
@@ -171,15 +172,13 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-t from-portfolio-dark to-portfolio-blue">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <Link to="/contact" className="btn-primary text-lg">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white hover:text-shadow-portfolio-purple">
-              Let's Build Together
-            </h2>
-            </Link>
-          </div>
+      <section className="py-16 bg-gradient-to-t from-portfolio-teal/15">
+        <div className="flex justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a href={"mailto:bibinbennypeter@gmail.com"} className="btn-primary text-lg">
+              <span className="text-l md:text-3xl font-bold mb-6 text-white hover:text-shadow-portfolio-purple">
+              Let's Build Together <span className="text-sm flex justify-center items-center"><FiMail/>bibinbennypeter@gmail</span>
+            </span>
+            </a>
         </div>
       </section>
     </div>
