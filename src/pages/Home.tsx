@@ -11,6 +11,7 @@ import {
   FiLayers,
   FiMail
 } from "react-icons/fi";
+import Projects from "./Projects.tsx";
 import profile from "../assets/BibinBenny.jpg";
 
 const Home = () => {
@@ -67,7 +68,7 @@ const Home = () => {
     <div className="hero-section min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-b to-portfolio-teal/15">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:pt-32 pb-24">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <motion.h1
@@ -121,10 +122,10 @@ const Home = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 0.8 }}
-                className="flex justify-center  max-sm:mt-4  md:w-1/2 items-center md:text-portfolio-teal"
+                className="flex justify-center  max-sm:mt-6  md:w-1/2 items-center md:text-portfolio-teal"
 
               >
-                <Link to={"https://bibinbennypeter.github.io/BibinBenny.pdf"} target="_blank" className="flex justify-center items-center max-sm:py-1 btn-primary max-sm:text-white max-sm:bg-portfolio-teal/45 w-35 rounded-2xl">
+                <Link to={"https://bibinbennypeter.github.io/BibinBenny.pdf"} target="_blank" className="flex justify-center items-center max-sm:py-1.5 btn-primary max-sm:text-white max-sm:bg-portfolio-teal/45 w-35 rounded-4xl">
                   Get my resume <FiArrowRight className="max-sm:hidden  inline ml-2" />
                 </Link>
 
@@ -135,7 +136,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Expertise Section */}
       <section className="py-16 bg-gradient-to-b from-portfolio-teal/15">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl md:text-4xl font-bold mb-12 text-white">
@@ -171,12 +172,22 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Projects Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-3xl md:text-4xl font-bold mb-12 text-white">
+<span className="text-portfolio-teal">Projects</span>
+          </h2>
+            <Projects/>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-t from-portfolio-teal/15">
         <div className="flex justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <a href={"mailto:bibinbennypeter@gmail.com"} className="btn-primary text-lg">
+            <a href={"mailto:bibinbennypeter@gmail.com]"} className="btn-primary text-lg">
               <span className="text-l md:text-3xl font-bold mb-6 text-white hover:text-shadow-portfolio-purple">
-              Let's Build Together <span className="text-sm flex justify-center items-center"><FiMail/>bibinbennypeter@gmail</span>
+              Let's Build Together <span className="text-sm flex justify-center items-center text-portfolio-teal/50"><FiMail className="mr-1"/>bibinbennypeter@gmail</span>
             </span>
             </a>
         </div>
