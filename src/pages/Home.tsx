@@ -8,12 +8,14 @@ import {
   ArrowRight, 
   Code, 
   Database, 
-  FileCode, 
+  CodeBlock,
+  Browsers,
   Shield, 
+  Coins,
   EnvelopeSimple,
   GithubLogo,
   LinkedinLogo,
-  TwitterLogo
+  XLogo
 } from "@phosphor-icons/react";
 
 const Home = () => {
@@ -37,29 +39,35 @@ const Home = () => {
 
   // Keyword rotation effect
   useEffect(() => {
-    const interval = setTimeout(() => {
-      setCurrentKeywordIndex((prevIndex) => (prevIndex + 1) % keywords.length);
-    }, 3000);
+  setCurrentKeywordIndex(0);
+  
+  // array to track timeouts
+  const timeouts = [];
+  
+  for (let i = 1; i < keywords.length; i++) {
+    const timeout = setTimeout(() => {
+      setCurrentKeywordIndex(i);
+    }, i * 3000);
     
-    return () => clearInterval(interval);
+    timeouts.push(timeout);
+  }
+  
+  // Cleanup function to clear any remaining timeouts if component unmounts
+  return () => {
+    timeouts.forEach(timeout => clearTimeout(timeout));};
   }, []);
 
   // Skills list with improved descriptions
   const skills = [
     { 
       name: "Smart Contract Development", 
-      icon: <FileCode size={28} weight="duotone" />,
+      icon: <CodeBlock size={28} weight="duotone" />,
       description: "Building secure and efficient smart contracts using Solidity."
     },
     { 
       name: "Web3 Integration", 
-      icon: <FileCode size={28} weight="duotone" />,
+      icon: <Browsers size={28} weight="duotone" />,
       description: "Seamlessly connecting frontend applications with blockchain networks."
-    },
-    { 
-      name: "Smart Contract Security", 
-      icon: <Shield size={28} weight="duotone" />,
-      description: "Implementing best practices for secure, auditable blockchain code."
     },
     { 
       name: "Frontend Development", 
@@ -72,9 +80,14 @@ const Home = () => {
       description: "Building robust API services and server infrastructure."
     },
     { 
-      name: "DeFi Protocol Design", 
-      icon: <Database size={28} weight="duotone" />,
-      description: "Architecting decentralized financial solutions and protocols."
+      name: "Smart Contract Security", 
+      icon: <Shield size={28} weight="duotone" />,
+      description: "Exploring best practices for secure, auditable blockchain code."
+    },
+    { 
+      name: "DeFi Protocols", 
+      icon: <Coins size={28} weight="duotone" />,
+      description: "Familiarised decentralized financial concepts and protocols."
     }
   ];
 
@@ -101,7 +114,7 @@ const Home = () => {
   };
 
   return (
-    <div className="hero-section min-h-screen bg-gradient-to-br from-portfolio-black to-portfolio-dark/55">
+    <div className="hero-section min-h-screen bg-gradient-to-br from-black/5 to-portfolio-dark/55">
       {/* Hero Section with Glass Effect */}
       <section className="relative overflow-hidden">
         {/* Abstract background elements */}
@@ -110,9 +123,9 @@ const Home = () => {
           <div className="absolute bottom-1/3 right-1/4 w-64 h-64 rounded-full bg-portfolio-teal/60 blur-3xl"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:pt-32 pb-24 relative z-10 border-1">
-          <div className="flex flex-col md:flex-row items-center border-1">
-            <div className="md:w-1/2 mb-10 md:mb-0 border-1">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:pt-32 pb-24 relative z-10">
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2 mb-10 md:mb-0">
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -153,15 +166,9 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9, duration: 0.8 }}
-                className="flex flex-wrap gap-4 border-1"
+                className="flex flex-wrap gap-4"
               >
-                <Link 
-                  to="https://bibinbennypeter.github.io/BibinBenny.pdf" 
-                  target="_blank" 
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-portfolio-teal/75 to-portfolio-purple flex items-center text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-teal/20"
-                >
-                  Download Resume <ArrowRight weight="bold" className="ml-2" />
-                </Link>
+
 
                 <div className="flex gap-3 items-center">
                   <a 
@@ -186,13 +193,14 @@ const Home = () => {
                     rel="noopener noreferrer"
                     className="w-10 h-10 flex items-center justify-center rounded-full backdrop-blur-md bg-white/10 hover:bg-white/20 transition-all duration-300"
                   >
-                    <TwitterLogo size={22} weight="fill" className="text-white" />
+                    <XLogo size={22} weight="fill" className="text-white" />
                   </a>
                 </div>
               </motion.div>
             </div>
 
-            <div className="md:w-1/2 flex justify-center border-1">
+            <div className="md:w-1/2 flex-col">
+            <div className="flex justify-center">
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -214,6 +222,20 @@ const Home = () => {
                 </div>
               </motion.div>
             </div>
+              <motion.div
+              initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9, duration: 0.8 }}
+              className="flex justify-center mt-8 md:mt-12">
+              <Link 
+                  to="https://bibinbennypeter.github.io/BibinBenny.pdf" 
+                  target="_blank" 
+                  className=" w-42 left-auto right-auto px-6 py-3 rounded-full bg-gradient-to-r from-portfolio-teal to-portfolio-purple md:from-portfolio-teal/5 md:to-portfolio-purple/5 flex items-center text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-teal/20"
+                >
+                  My Resume <ArrowRight weight="bold" className="ml-2" />
+                </Link>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -232,9 +254,9 @@ const Home = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center text-3xl md:text-4xl font-bold mb-16 text-white"
+            className="text-center text-3xl md:text-4xl font-bold mb-16 text-portfolio-teal"
           >
-            My <span className="text-portfolio-teal">Expertise</span>
+            Expertise
           </motion.h2>
 
           <motion.div
@@ -249,7 +271,7 @@ const Home = () => {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                className="rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-teal/5"
+                className="rounded-2xl backdrop-blur-md bg-white/5 p-6 hover:bg-white/10 transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-teal/5"
               >
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="rounded-lg text-portfolio-teal">
@@ -282,10 +304,9 @@ const Home = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center text-3xl md:text-4xl font-bold mb-16 text-white"
+            className="text-center text-3xl md:text-4xl font-bold mb-16 text-portfolio-teal"
           >
-            Featured <span className="text-portfolio-teal">Projects</span>
-          </motion.h2>
+            Projects          </motion.h2>
           
           <Projects />
         </div>
@@ -295,7 +316,7 @@ const Home = () => {
       <section className="py-24 relative overflow-hidden">
         {/* Abstract background elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-portfolio-purple/20 blur-3xl"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 rounded-full bg-portfolio-purple/10 blur-3xl"></div>
           <div className="absolute top-1/3 right-1/4 w-64 h-64 rounded-full bg-portfolio-teal/20 blur-3xl"></div>
         </div>
       
