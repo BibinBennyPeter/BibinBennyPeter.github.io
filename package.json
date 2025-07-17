@@ -10,7 +10,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "vite build",
+    "copy-assets": "cp \"public/**/*.pdf\" dist/ --parents",
+    "predeploy": "npm run copy-assets",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
