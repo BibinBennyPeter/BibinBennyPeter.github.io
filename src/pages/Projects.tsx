@@ -3,9 +3,9 @@ const Projects = () =>
 {
   const projects = [
     {
-      title: "Ethereum Fund Flow Analysis",
-      description: "Go-based project that leverages the Etherscan API to analyze how funds move through the Ethereum blockchain.",
-      link: "https://github.com/BibinBennyPeter/Ethereum-fund-flow-analysis"
+      title: "Permissionless Federated Learning",
+      description: "Built a system with DP-noised client updates, Python FedAvg aggregation, and Solidity contracts for on-chain model publishing and token rewards for contributions.",
+      link: "https://github.com/BibinBennyPeter/permissionless-federated-learning"
     },
     {
       title: "Decentralized Cryptocurrency Exchange",
