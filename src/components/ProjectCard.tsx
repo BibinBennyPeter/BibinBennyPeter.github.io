@@ -1,6 +1,12 @@
-const ProjectCard = ({ title, description, link }) => {
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  link: string;
+}
+
+const ProjectCard = ({ title, description, link }: ProjectCardProps) => {
   return (
-    <div className="w-full h-64 bg-gradient-to-br  to-portfolio-purple/5 hover:to-portfolio-teal/15 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-colors duration-300 delay-100 flex flex-col">
+    <div className="w-full h-64 bg-gradient-to-br to-portfolio-purple/5 hover:to-portfolio-teal/15 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-colors duration-300 delay-100 flex flex-col">
       {/* Card Content */}
       <div className="flex-1 p-6 flex flex-col justify-between">
         <div>

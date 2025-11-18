@@ -42,7 +42,7 @@ const Home = () => {
   setCurrentKeywordIndex(0);
   
   // array to track timeouts
-  const timeouts = [];
+  const timeouts: ReturnType<typeof setTimeout>[] = [];
   
   for (let i = 1; i < keywords.length; i++) {
     const timeout = setTimeout(() => {
